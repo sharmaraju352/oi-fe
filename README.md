@@ -4,6 +4,9 @@
 
 The Air Quality Dashboard is a frontend application built with React and Material-UI for visualizing air quality data. It connects to the Air Quality API backend to ingest and display data in interactive charts and tables.
 
+## Demo
+![Project in Action](./assets/output.gif)
+
 ---
 
 ## Prerequisites
