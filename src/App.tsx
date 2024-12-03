@@ -1,11 +1,14 @@
-import { CssBaseline, StyledEngineProvider } from '@mui/material';
+import { CssBaseline, StyledEngineProvider, ThemeProvider } from '@mui/material';
 import AirQualityChart from './components/AirQualityChart';
+import themes from './themes';
 
 function App() {
   return (
     <StyledEngineProvider injectFirst>
-      <CssBaseline />
-      <AirQualityChart />
+      <ThemeProvider theme={themes()}>
+        <CssBaseline />
+        <AirQualityChart />
+      </ThemeProvider>
     </StyledEngineProvider>
   );
 }
