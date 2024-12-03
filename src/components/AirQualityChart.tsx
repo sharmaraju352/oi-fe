@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Grid, Typography, Button, SelectChangeEvent } from '@mui/material';
 import Chart from 'react-apexcharts';
-
 import ParameterSelector from './ParameterSelector';
 import IntervalSelector from './IntervalSelector';
 import DateRangePicker from './DateRangePicker';
