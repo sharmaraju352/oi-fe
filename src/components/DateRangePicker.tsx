@@ -20,7 +20,7 @@ const DateRangePicker: React.FC<DateRangePickerProps> = ({
   endDate,
   setEndDate,
   minDate,
-  maxDate,
+  maxDate
 }) => (
   <LocalizationProvider dateAdapter={AdapterDateFns}>
     <Grid item>
@@ -30,11 +30,18 @@ const DateRangePicker: React.FC<DateRangePickerProps> = ({
         onChange={(date: Date | null) => {
           if (date) setStartDate(date);
         }}
-        renderInput={(params) => <TextField {...params} />}
         minDate={minDate}
         maxDate={endDate || maxDate}
         disabled={!isCustomDate}
-        inputFormat="dd/MM/yyyy"
+        format="dd/MM/yyyy"
+        slots={{
+          textField: TextField
+        }}
+        slotProps={{
+          textField: {
+            fullWidth: true
+          }
+        }}
       />
     </Grid>
     <Grid item>
@@ -44,11 +51,18 @@ const DateRangePicker: React.FC<DateRangePickerProps> = ({
         onChange={(date: Date | null) => {
           if (date) setEndDate(date);
         }}
-        renderInput={(params) => <TextField {...params} />}
         minDate={startDate || minDate}
         maxDate={maxDate}
         disabled={!isCustomDate}
-        inputFormat="dd/MM/yyyy"
+        format="dd/MM/yyyy"
+        slots={{
+          textField: TextField
+        }}
+        slotProps={{
+          textField: {
+            fullWidth: true
+          }
+        }}
       />
     </Grid>
   </LocalizationProvider>

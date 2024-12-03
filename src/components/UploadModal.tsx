@@ -13,7 +13,7 @@ import {
   TableRow,
   TableCell,
   TableBody,
-  TablePagination,
+  TablePagination
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import { format } from 'date-fns';
@@ -76,8 +76,8 @@ const UploadModal: React.FC<UploadModalProps> = ({ isModalOpen, handleCloseModal
       try {
         await axios.post(`${API_BASE_URL}/air-quality/ingest`, formData, {
           headers: {
-            'Content-Type': 'multipart/form-data',
-          },
+            'Content-Type': 'multipart/form-data'
+          }
         });
 
         setLastUploadTimestamp(Date.now());
@@ -94,11 +94,11 @@ const UploadModal: React.FC<UploadModalProps> = ({ isModalOpen, handleCloseModal
 
   const fetchTableData = async (pageNumber: number, rowsPerPage: number) => {
     try {
-      const response = await axios.get(`${API_BASE_URL}/air-quality/data`, {
+      const response = await axios.get<{ data: TableData[]; total: number }>(`${API_BASE_URL}/air-quality/data`, {
         params: {
           offset: pageNumber * rowsPerPage,
-          limit: rowsPerPage,
-        },
+          limit: rowsPerPage
+        }
       });
       const newData: TableData[] = response.data.data;
       setTableData(newData);
@@ -108,7 +108,7 @@ const UploadModal: React.FC<UploadModalProps> = ({ isModalOpen, handleCloseModal
     }
   };
 
-  const handleChangePage = (event: unknown, newPage: number) => {
+  const handleChangePage = (_: unknown, newPage: number) => {
     setPage(newPage);
     fetchTableData(newPage, rowsPerPage);
   };
@@ -129,7 +129,7 @@ const UploadModal: React.FC<UploadModalProps> = ({ isModalOpen, handleCloseModal
           mt: 5,
           bgcolor: 'background.paper',
           p: 4,
-          borderRadius: 1,
+          borderRadius: 1
         }}
       >
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>

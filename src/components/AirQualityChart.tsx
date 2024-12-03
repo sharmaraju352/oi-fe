@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Grid, Typography, Button } from '@mui/material';
+import { Grid, Typography, Button, SelectChangeEvent } from '@mui/material';
 import Chart from 'react-apexcharts';
 
 import ParameterSelector from './ParameterSelector';
@@ -16,7 +16,7 @@ import { parameterOptions, intervals, lastDate, minDate } from './constants';
 const AirQualityChart: React.FC = () => {
   const [parameters, setParameters] = useState<string[]>(['co_gt']);
 
-  const handleParameterChange = (event: React.ChangeEvent<{ value: unknown }>) => {
+  const handleParameterChange = (event: SelectChangeEvent<string[]>) => {
     const {
       target: { value },
     } = event;

@@ -1,11 +1,11 @@
 import React from 'react';
-import { FormControl, InputLabel, Select, MenuItem, Checkbox, ListItemText, OutlinedInput } from '@mui/material';
+import { FormControl, InputLabel, Select, MenuItem, Checkbox, ListItemText, OutlinedInput, SelectChangeEvent } from '@mui/material';
 import { ParameterOption } from './constants';
 
 interface ParameterSelectorProps {
   parameters: string[];
   parameterOptions: ParameterOption[];
-  handleParameterChange: (event: React.ChangeEvent<{ value: unknown }>) => void;
+  handleParameterChange: (event: SelectChangeEvent<string[]>) => void;
 }
 
 const ParameterSelector: React.FC<ParameterSelectorProps> = ({
